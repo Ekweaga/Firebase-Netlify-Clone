@@ -24,10 +24,12 @@ function Main() {
         </div>
 
         <div className="absolute top-[30%] p-3">
+            <div className="mb-3 bg-red-600 p-5 rounded-full w-[30px] h-[30px] flex items-center justify-center ">{movie?.vote_average}</div>
             <div className="mb-10">
                 <button className="bg-white text-black border  mr-2 p-2 w-[150px]">Play</button>
                 <button className="bg-transparent border p-2 w-[150px]">Watch later</button>
             </div>
+            <div className="mb-2">Released date : {movie?.release_date}</div>
             <div><p>{movie?.overview}</p></div>
         </div>
       
