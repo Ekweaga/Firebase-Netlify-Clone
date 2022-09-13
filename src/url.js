@@ -8,5 +8,8 @@ export const requests = {
     trending:`https://api.themoviedb.org/3/movie/popular?api_key=${apikey}&language=en-US&page=1`,
     people:`https://api.themoviedb.org/3/person/popular?api_key=${apikey}&language=en-US&page=1`,
     videos:`https://api.themoviedb.org/3/movie/{movie_id}/videos?api_key=${apikey}&language=en-US`,
-    tv:`https://api.themoviedb.org/3/tv/popular?api_key=${apikey}&language=en-US&page=1`
+    tv:`https://api.themoviedb.org/3/tv/popular?api_key=${apikey}&language=en-US&page=1`,
+    horror:`https://api.themoviedb.org/3/search/movie?api_key=${apikey}&language=en-US&query=horror&page=1&include_adult=true`,
+    comedy:`https://api.themoviedb.org/3/search/movie?api_key=${apikey}&language=en-US&query=vampire&page=1&include_adult=true`,
+   
 }

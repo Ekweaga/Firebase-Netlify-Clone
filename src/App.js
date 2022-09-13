@@ -11,9 +11,13 @@ function App() {
     <Navbar/>
     <Main/>
     <Row title='Upcoming' url={requests.upcoming}/>
+    <Row title="Top-rated" url={requests.toprated}/>
     <Row title='Trending' url={requests.trending}/>
-    <Row title='Popular' url={requests.latest}/>
-    <Row title='Latest'/>
+    <Row title="Night movies" url={requests.horror}/>
+    <Row title="Vampire" url={requests.comedy}/>
+   
+
+   
    
       
     </>
