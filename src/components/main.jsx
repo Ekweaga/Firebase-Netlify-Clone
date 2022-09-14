@@ -2,7 +2,7 @@ import React,{useEffect,useState} from 'react'
 import axios from 'axios'
 import { requests } from '../url'
 import {BsPlay} from "react-icons/bs"
-import ReactPlayer from 'react-player'
+
 
 function Main() {
 
