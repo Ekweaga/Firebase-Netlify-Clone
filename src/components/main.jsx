@@ -9,14 +9,20 @@ function Main() {
     const [movies,setMovies]=useState([])
   
     const movie = movies[Math.floor(Math.random() * movies.length)]
+    
 
     useEffect(()=>{
+
+       
+
+       setInterval(()=>{
         axios.get(requests.trending).then((response)=>{
             
             setMovies(response.data.results)
             
         })
-      
+       },3000)
+       
 
     },[])
 console.log(movies)

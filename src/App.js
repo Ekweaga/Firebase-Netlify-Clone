@@ -1,20 +1,29 @@
+import {Switch,Route} from "react-router-dom"
+import Login from "./components/login";
 
 
-import Main from './components/main';
 import Navbar from './components/Navbar';
-import Row from './components/Row';
-import {requests} from "./url"
+import Signup from "./components/signup";
+import Home from "./Home";
+
 
 function App() {
   return (
     <>
     <Navbar/>
-    <Main/>
-    <Row title='Upcoming' url={requests.upcoming}/>
-    <Row title="Top-rated" url={requests.toprated}/>
-    <Row title='Trending' url={requests.trending}/>
-    <Row title="Night movies" url={requests.horror}/>
-    <Row title="Vampire" url={requests.comedy}/>
+
+    <Switch>
+      <Route path="/" exact>
+        <Home/>
+      </Route>
+      <Route path="/login" exact>
+        <Login/>
+      </Route>
+      <Route path="/signup" exact>
+        <Signup/>
+      </Route>
+    </Switch>
+   
    
 
    
