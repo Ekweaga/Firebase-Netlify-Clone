@@ -1,13 +1,13 @@
 import React,{useEffect,useState} from 'react'
 import axios from 'axios'
 import { requests } from '../url'
-import {BsPlay} from "react-icons/bs"
+
 
 
 function Main() {
 
     const [movies,setMovies]=useState([])
-    const [videos,setVideos] = useState([])
+  
     const movie = movies[Math.floor(Math.random() * movies.length)]
 
     useEffect(()=>{
