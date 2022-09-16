@@ -80,7 +80,7 @@ function Signup() {
         <img src={`http://image.tmdb.org/t/p/original/${movie?.backdrop_path}`} className="w-full h-full object-cover" alt={movie?.title}/>
         <div className=" absolute left-0 bottom-0 bg-black opacity-60 w-full h-screen"></div>
 
-        <div className="absolute top-[20%] left-[8%] md:left-[35%] bg-black h-[500px] w-[350px]  m-auto text-white">
+        <div className="absolute top-[20%] left-[8%] md:left-[35%] bg-black h-[500px] w-[350px]  m-auto text-white form">
            
             <div className="flex items-center flex-col justify-center mt-[80px] w-full">
             {error?(<div className='flex items-center justify-center text-red-600 border border-red-600  w-[300px] p-2'><p>{error}</p></div>):null}

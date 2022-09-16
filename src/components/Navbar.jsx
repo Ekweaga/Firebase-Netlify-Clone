@@ -18,7 +18,7 @@ const history = useHistory()
        {
         user ? ( <div  className='flex gap-2 px-2'>
          
-        <button className="text-white"><Link to="login">Account </Link> </button>
+        <button className="text-white"><Link to="account">Account </Link> </button>
         <button className="bg-red-900 text-white p-1 rounded" onClick={logout}>Logout</button>
       </div>) :( <div  className='flex gap-2 px-2'>
          
