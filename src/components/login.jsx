@@ -21,6 +21,8 @@ function Login() {
    const provider = new GoogleAuthProvider();
    const googleSignIn = async()=>{
    await signInWithPopup(auth,provider).then(()=>{
+   
+    
     history.replace("/")
    })
 }

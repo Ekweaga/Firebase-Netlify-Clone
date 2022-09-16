@@ -25,7 +25,7 @@ function Main() {
        
 
     },[])
-console.log(movies)
+
   
   return (
     <div className="w-full h-[600px] relative text-white">

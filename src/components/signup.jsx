@@ -6,7 +6,8 @@ import {Link,useHistory} from "react-router-dom"
 import { auth } from '../firebase';
 import {signInWithPopup, GoogleAuthProvider,createUserWithEmailAndPassword} from 'firebase/auth'
 //import {MdDownloading} from "react-icons/md"
-
+import { doc, setDoc } from "firebase/firestore"; 
+import {projectfirestore} from "../firebase"
 
 function Signup() {
     const [movies,setMovies]=useState([])
@@ -18,14 +19,19 @@ function Signup() {
   const [email,setEmail] = useState('')
   const [password, setPassword] = useState('')
  
-  
+ 
+
     const movie = movies[Math.floor(Math.random() * movies.length)]
 
   
         const googleSignup = async()=>{
           await signInWithPopup(auth,provider).then(()=>{
             history.replace("/")
+            
           })
+          await setDoc(doc(projectfirestore,'users' `${email}`),{
+            savedShows:[]
+           })
         }
     const  signupUser = async (e)=>{
         e.preventDefault();
@@ -47,8 +53,12 @@ function Signup() {
           await createUserWithEmailAndPassword(auth,email,password).then((response)=>{
             console.log(response.user.refreshToken)
             localStorage.setItem('token', JSON.stringify(response.user.refreshToken))
+           
             
           });
+          setDoc(doc(projectfirestore,'users' `${email}`),{
+            savedShows:[]
+           })
        //  setLoading(false)
          setsuccess("Your Account is created successfully")
             setEmail('')

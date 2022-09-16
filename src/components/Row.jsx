@@ -1,11 +1,16 @@
 import React,{useEffect,useState} from 'react'
 import axios from 'axios'
-import {AiFillPlayCircle} from 'react-icons/ai'
+//import {AiFillPlayCircle} from 'react-icons/ai'
 import {MdChevronLeft} from "react-icons/md"
 import {MdChevronRight} from "react-icons/md"
+//import { doc, setDoc } from "firebase/firestore"; 
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+//import {projectfirestore} from "../firebase"
 import "./row.css"
+import Movies from './Movies'
 function Row({title,url,id}) {
     const [movies,setMovies] = useState([])
+    //const db=projectfirestore
 
    const goRight = ()=>{
         const slider = document.getElementById("slider" + id)
@@ -24,6 +29,26 @@ function Row({title,url,id}) {
         })
 
     },[url])
+    //const [user,setUser]=useState(null)
+    
+const auth = getAuth();
+
+
+useEffect(()=>{
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+  
+      //setUser(user)
+     
+      // ...
+    } else {
+      // User is signed out
+      // ...
+      
+    }
+  });})
+
   return (
     <div className='text-white'>
      <h2 className="p-3 mx-2">{title}</h2>
@@ -33,14 +58,7 @@ function Row({title,url,id}) {
             {
                 movies.map((movie)=>{
                     return (
-                        <div className="w-[160px] h-[160px] m-3 inline-block relative p-2 lg:w-[280px] md:h-[160px] cursor-pointer">
-                           
-                             <img src={`http://image.tmdb.org/t/p/w500/${movie?.backdrop_path}`} alt={movie?.title} className="w-full h-full block"/>
-                             <div className="absolute w-full h-full top-0 left-0 bg-black/80 opacity-0 hover:opacity-100 hover:bg-black flex items-center justify-center flex-col gap-3">
-                                <p className='flex items-center justify-center'>{movie?.title}</p>
-                                <AiFillPlayCircle/>
-                             </div>
-                            </div>
+                      <Movies movie={movie} key={movie?.id}/>
                     )
                 })
             }

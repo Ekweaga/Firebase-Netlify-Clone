@@ -11,5 +11,7 @@ export const requests = {
     tv:`https://api.themoviedb.org/3/tv/popular?api_key=${apikey}&language=en-US&page=1`,
     horror:`https://api.themoviedb.org/3/search/movie?api_key=${apikey}&language=en-US&query=horror&page=1&include_adult=true`,
     comedy:`https://api.themoviedb.org/3/search/movie?api_key=${apikey}&language=en-US&query=vampire&page=1&include_adult=true`,
-   
+    comedies:`https://api.themoviedb.org/3/search/movie?api_key=${apikey}&language=en-US&query=comedy&page=1&include_adult=true`,
+    cartoon:`https://api.themoviedb.org/3/search/movie?api_key=${apikey}&language=en-US&query=cartoon&page=1&include_adult=true`,
+    pirate:`https://api.themoviedb.org/3/search/movie?api_key=${apikey}&language=en-US&query=pirate&page=1&include_adult=true`,
 }

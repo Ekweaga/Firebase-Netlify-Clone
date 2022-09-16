@@ -14,11 +14,11 @@ function App() {
 const auth = getAuth();
 
 useEffect(()=>{
-  onAuthStateChanged(auth, (user) => {
+  onAuthStateChanged(auth, (currentUser) => {
     if (user) {
       // User is signed in, see docs for a list of available properties
   
-      setUser(user)
+      setUser(currentUser)
      
       // ...
     } else {
@@ -28,7 +28,7 @@ useEffect(()=>{
     }
   });
   console.log(user)
-},[])
+},[user,auth])
   return (
     <>
     <Navbar user={user}/>
@@ -40,8 +40,8 @@ useEffect(()=>{
       <Route path="/login" exact>
         <Login/>
       </Route>
-      <Route path="/signup" exact>
-        <Signup/>
+      <Route path="/signup" exact >
+        <Signup />
       </Route>
       <Route path="/account" exact>
         <Account/>
