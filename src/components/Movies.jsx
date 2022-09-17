@@ -1,7 +1,26 @@
-import React from 'react'
+import React,{useState} from 'react'
 import alt from "../login.jpg"
+import {AiOutlinePlus} from "react-icons/ai"
+import { doc,updateDoc,arrayUnion } from "firebase/firestore"; 
+import {projectfirestore} from "../firebase"
 
-function Movies({movie}) {
+function Movies({movie,user}) {
+
+const [red,setRed] = useState(false)
+
+
+  const addmovie = async ()=>{
+      await updateDoc(doc(projectfirestore,"Movieusers",`${user?.email}`),{
+        saveShows:arrayUnion({
+            id:movie?.id,
+            title:movie?.title,
+            img:movie?.backdrop_path
+        })
+      }).then(()=>{
+       
+      })
+      setRed(true)
+  }
   return (
     <>
         <div className="w-[160px] h-[160px] m-3 inline-block relative p-2 lg:w-[280px] md:h-[160px] cursor-pointer">
@@ -11,6 +30,7 @@ function Movies({movie}) {
                               <p className='flex items-center justify-center'>{movie?.title}</p>
                              
                            </div>
+                           <div className="absolute top-4 left-4 " style={{color:`${red ? red :null}`}}><AiOutlinePlus onClick={addmovie}/></div>
                           </div>
     </>
   )

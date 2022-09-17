@@ -25,13 +25,14 @@ function Signup() {
 
   
         const googleSignup = async()=>{
-          await signInWithPopup(auth,provider).then(()=>{
+          await signInWithPopup(auth,provider).then((user)=>{
             history.replace("/")
+           setDoc(doc(projectfirestore,"Movieusers",`${user?.email}`,{
+            savedShows:[]
+           }))
             
           })
-          await setDoc(doc(projectfirestore,'users' `${email}`),{
-            savedShows:[]
-           })
+      
         }
     const  signupUser = async (e)=>{
         e.preventDefault();
@@ -56,7 +57,7 @@ function Signup() {
            
             
           });
-          setDoc(doc(projectfirestore,'users' `${email}`),{
+          setDoc(doc(projectfirestore,'Movieusers', `${email}`),{
             savedShows:[]
            })
        //  setLoading(false)

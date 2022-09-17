@@ -6,6 +6,7 @@ import Signup from "./components/signup";
 import Home from "./Home";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Account from "./components/Account";
+import Movies from "./components/Movies";
 
 
 function App() {
@@ -46,6 +47,7 @@ useEffect(()=>{
       <Route path="/account" exact>
         <Account/>
       </Route>
+      <Route path="/m" exact><Movies user={user}/></Route>
     </Switch>
    
    
