@@ -27,7 +27,9 @@ function Signup() {
         const googleSignup = async()=>{
           await signInWithPopup(auth,provider).then((user)=>{
             history.replace("/")
-           setDoc(doc(projectfirestore,"Movieusers",`${user?.email}`,{
+            console.log(user.user.email)
+            const googleemail = user.user.email
+           setDoc(doc(projectfirestore,"Movieusers",`${googleemail}`,{
             savedShows:[]
            }))
             

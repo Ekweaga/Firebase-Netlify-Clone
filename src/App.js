@@ -32,7 +32,7 @@ useEffect(()=>{
 },[user,auth])
   return (
     <>
-    <Navbar user={user}/>
+    <Navbar />
 
     <Switch>
       <Route path="/" exact>

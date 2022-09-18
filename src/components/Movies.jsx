@@ -1,12 +1,14 @@
-import React,{useState} from 'react'
+import React,{useState,useContext} from 'react'
 import alt from "../login.jpg"
 import {AiOutlinePlus} from "react-icons/ai"
 import { doc,updateDoc,arrayUnion } from "firebase/firestore"; 
 import {projectfirestore} from "../firebase"
-
-function Movies({movie,user}) {
+import {AuthContext} from "../Context"
+function Movies({movie}) {
 
 const [red,setRed] = useState(false)
+
+const {user} = useContext(AuthContext)
 
 
   const addmovie = async ()=>{

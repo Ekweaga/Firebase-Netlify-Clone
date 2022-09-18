@@ -1,10 +1,13 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import {Link} from "react-router-dom"
 import {  signOut } from "firebase/auth";
 import {auth} from "../firebase"
 import {useHistory} from "react-router-dom"
+import {AuthContext} from "../Context"
 
-function Navbar({user}) {
+function Navbar() {
+
+  const {user} = useContext(AuthContext)
 const history = useHistory()
 
  const logout = async ()=>{
