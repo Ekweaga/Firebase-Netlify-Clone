@@ -4,9 +4,16 @@ import {AuthContext} from "../Context"
 import { doc, onSnapshot,updateDoc } from "firebase/firestore";
 import {projectfirestore} from "../firebase"
 import alt from "../login.jpg"
+
+import axios from 'axios'
+import {FcStart} from "react-icons/fc"
+
 function Account() {
   const [movies,setMovies] = useState([])
+  const [videourl,setVideourl] = useState('')
+  const [show,setshow] = useState(false)
   const {user} = useContext(AuthContext)
+  
 
 
   const deletemovie = async (id)=>{
@@ -21,6 +28,14 @@ function Account() {
 
   }
 
+  const getmovie = (id) =>{
+    axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=8b202e3aa9ae4600acd6c448e326badd&language=en-US`).then((response)=>{
+      console.log(response.data.results[0].key)
+      setVideourl(response.data.results[0].key)
+      setshow(!show)
+    })
+  }
+
 
   useEffect(()=>{
    
@@ -32,8 +47,9 @@ function Account() {
     
   });
   
+  
   },[user?.email])
-  console.log(movies)
+ 
   return (
     <>
     <div className="w-full h-[500px] relative text-white">
@@ -57,11 +73,19 @@ function Account() {
               return (<><div className="flex flex-col items-center justify-content relative"><img src={movie?.img? `http://image.tmdb.org/t/p/w500/${movie?.img}`: alt} alt={movie?.title}/>
               <div><span>{movie?.title}</span></div>
               <span className="absolute top-4 right-4 cursor-pointer" onClick={()=>deletemovie(movie?.id)}>X</span>
+              <span className="absolute top-[50%] left-[50%] cursor-pointer " onClick={()=>getmovie(movie?.id)}><FcStart size = {50}/></span>
               </div></>)
             })}
           
 
         </div>
+
+      {
+        show ?( <div className="absolute top-0 bottom-0 flex items-center justify-center w-full h-screen bg-black z-10">
+        <iframe src={`http://www.youtube.com/embed/${videourl ? videourl :null}?enablejsapi=1&origin=http://example.com`} frameborder="0" title="video"  className="w-full h-full"></iframe>
+        <span className="fixed top-[40px] right-4 cursor-pointer text-3xl z-40 text-white" onClick={()=>setshow(false)}>X</span>
+      </div>) :null
+      } 
 
         
 
