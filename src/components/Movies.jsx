@@ -4,7 +4,12 @@ import {AiOutlinePlus} from "react-icons/ai"
 import { doc,updateDoc,arrayUnion } from "firebase/firestore"; 
 import {projectfirestore} from "../firebase"
 import {AuthContext} from "../Context"
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 function Movies({movie}) {
+
 
 const [red,setRed] = useState(false)
 
@@ -12,6 +17,7 @@ const {user} = useContext(AuthContext)
 
 
   const addmovie = async ()=>{
+    if(user){
       await updateDoc(doc(projectfirestore,"Movieusers",`${user?.email}`),{
         saveShows:arrayUnion({
             id:movie?.id,
@@ -19,9 +25,15 @@ const {user} = useContext(AuthContext)
             img:movie?.backdrop_path
         })
       }).then(()=>{
-       
+        setRed(true)
       })
-      setRed(true)
+    }
+
+    else{
+      toast.error("You don't have an account, Sign Up now")
+    }
+     
+     
   }
   return (
     <>

@@ -1,12 +1,25 @@
 import React,{useState,useContext,useEffect} from 'react'
 import bg from "../login.jpg"
 import {AuthContext} from "../Context"
-import { doc, onSnapshot } from "firebase/firestore";
+import { doc, onSnapshot,updateDoc } from "firebase/firestore";
 import {projectfirestore} from "../firebase"
 import alt from "../login.jpg"
 function Account() {
   const [movies,setMovies] = useState([])
   const {user} = useContext(AuthContext)
+
+
+  const deletemovie = async (id)=>{
+    const results = movies.filter((item)=>item.id !== id)
+
+   
+
+    await updateDoc(doc(projectfirestore, "Movieusers", `${user?.email}`),{
+      saveShows:results
+    })
+
+
+  }
 
 
   useEffect(()=>{
@@ -35,16 +48,25 @@ function Account() {
         </div>
 
 
-        <div className='text-white grid md:grid-cols-4 grid-cols-1 mt-[100px]'>
+       <div className='text-white grid md:grid-cols-4 grid-cols-1 mt-[100px]'>
+
+
 
           {
             movies.map((movie)=>{
-              return (<><div className="flex flex-col items-center justify-content"><img src={movie?.img? `http://image.tmdb.org/t/p/w500/${movie?.img}`: alt} alt={movie?.title}/>
-              <div><span>{movie?.title}</span></div></div></>)
-            })
-          }
+              return (<><div className="flex flex-col items-center justify-content relative"><img src={movie?.img? `http://image.tmdb.org/t/p/w500/${movie?.img}`: alt} alt={movie?.title}/>
+              <div><span>{movie?.title}</span></div>
+              <span className="absolute top-4 right-4 cursor-pointer" onClick={()=>deletemovie(movie?.id)}>X</span>
+              </div></>)
+            })}
+          
 
         </div>
+
+        
+
+
+       
 
       
     </>
