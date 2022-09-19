@@ -12,9 +12,9 @@ function Home() {
     <Row title='Trending' id="3" url={requests.trending}/>
     <Row title="Night movies" id="4" url={requests.horror}/>
     <Row title="Vampire" id="5" url={requests.comedy}/>
-    <Row title="Comedy" id="5" url={requests.comedies}/>
-    <Row title="Cartoon" id="5" url={requests.cartoon}/>
-    <Row title="Pirates" id="5" url={requests.pirate}/>
+    <Row title="Comedy" id="6" url={requests.comedies}/>
+    <Row title="Cartoon" id="7" url={requests.cartoon}/>
+    <Row title="Pirates" id="8" url={requests.pirate}/>
     </>
   )
 }

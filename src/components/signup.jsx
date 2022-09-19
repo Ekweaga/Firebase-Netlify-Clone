@@ -30,7 +30,7 @@ function Signup() {
             console.log(user.user.email)
             const googleemail = user.user.email
            setDoc(doc(projectfirestore,"Movieusers",`${googleemail}`,{
-            savedShows:[]
+            saveShows:[]
            }))
             
           })
@@ -60,7 +60,7 @@ function Signup() {
             
           });
           setDoc(doc(projectfirestore,'Movieusers', `${email}`),{
-            savedShows:[]
+            saveShows:[]
            })
        //  setLoading(false)
          setsuccess("Your Account is created successfully")

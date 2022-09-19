@@ -4,8 +4,8 @@ import {AiOutlinePlus} from "react-icons/ai"
 import { doc,updateDoc,arrayUnion } from "firebase/firestore"; 
 import {projectfirestore} from "../firebase"
 import {AuthContext} from "../Context"
-import {toast} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import alertify from 'alertifyjs';
+import 'alertifyjs/build/css/alertify.css';
 
 
 function Movies({movie}) {
@@ -26,11 +26,12 @@ const {user} = useContext(AuthContext)
         })
       }).then(()=>{
         setRed(true)
+        alertify.success("Movie added to yourPlaylists")
       })
     }
 
     else{
-      toast.error("You don't have an account, Sign Up now")
+      alertify.error("You don't have an account, Sign Up now");
     }
      
      
