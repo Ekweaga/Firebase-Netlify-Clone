@@ -73,7 +73,7 @@ function Account() {
               return (<><div className="flex flex-col items-center justify-content relative"><img src={movie?.img? `http://image.tmdb.org/t/p/w500/${movie?.img}`: alt} alt={movie?.title}/>
               <div><span>{movie?.title}</span></div>
               <span className="absolute top-4 right-4 cursor-pointer" onClick={()=>deletemovie(movie?.id)}>X</span>
-              <span className="absolute top-[50%] left-[50%] cursor-pointer " onClick={()=>getmovie(movie?.id)}><FcStart size = {50}/></span>
+              <span className="absolute top-[30%] left-[40%] cursor-pointer " onClick={()=>getmovie(movie?.id)}><FcStart size = {50}/></span>
               </div></>)
             })}
           
