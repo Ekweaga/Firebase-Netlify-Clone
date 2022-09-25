@@ -15,6 +15,14 @@ function Home() {
     <Row title="Comedy" id="6" url={requests.comedies}/>
     <Row title="Cartoon" id="7" url={requests.cartoon}/>
     <Row title="Pirates" id="8" url={requests.pirate}/>
+    <Row title="Hero" id="9" url={requests.hero}/>
+    <Row title="Marvel" id="10" url={requests.marvel}/>
+    <Row title="Drama" id="11" url={requests.drama}/>
+    <Row title="Fictions" id="12" url={requests.fiction}/>
+    <Row title="Fantasy" id="13" url={requests.fantasy}/>
+    <Row title="Western" id="14" url={requests.western}/>
+    <Row title="Adventures" id="15" url={requests.adventure}/>
+    <Row title="Nollywood" id="16" url={requests.nigeria}/>
     </>
   )
 }

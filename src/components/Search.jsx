@@ -38,7 +38,7 @@ function Search() {
 {
   movies.map((movie)=>{
     return (<><div className="flex flex-col items-center justify-content relative">
-        <img src={movie?.img? `http://image.tmdb.org/t/p/w500/${movie?.img}`: alt} alt={movie?.title}/>
+        <img src={movie?.backdrop_path ? `http://image.tmdb.org/t/p/w500/${movie?.backdrop_path}`: alt} alt={movie?.title}/>
         <div className="absolute w-full h-full top-0 left-0 bg-black/40  flex items-center justify-center flex-col gap-3"></div>
     <div><span>{movie?.title}</span></div>
     
@@ -48,6 +48,12 @@ function Search() {
 
 
 </div>
+{
+        show ?( <div className="absolute top-0 bottom-0 flex items-center justify-center w-full h-screen bg-black z-10">
+        <iframe src={`http://www.youtube.com/embed/${videourl ? videourl :null}?enablejsapi=1&origin=http://example.com`} frameborder="0" title="video"  className="w-full h-full"></iframe>
+        <span className="fixed top-[40px] right-4 cursor-pointer text-3xl z-40 text-white" onClick={()=>setshow(false)}>X</span>
+      </div>) :null
+      } 
     </>
   )
 }
