@@ -24,4 +24,12 @@ export const requests = {
     romance:`https://api.themoviedb.org/3/search/movie?api_key=${apikey}&language=en-US&query=romance&page=1&include_adult=true`,
     western:`https://api.themoviedb.org/3/search/movie?api_key=${apikey}&language=en-US&query=western&page=1&include_adult=true`,
     nigeria:`https://api.themoviedb.org/3/search/movie?api_key=${apikey}&language=en-US&query=africa&page=1&include_adult=true`,
+
+    casts1:`https://api.themoviedb.org/3/person/popular?api_key=${apikey}&language=en-US&page=1`,
+    casts2:`https://api.themoviedb.org/3/person/popular?api_key=${apikey}&language=en-US&page=2`,
+    casts3:`https://api.themoviedb.org/3/person/popular?api_key=${apikey}&language=en-US&page=3`,
+    casts4:`https://api.themoviedb.org/3/person/popular?api_key=${apikey}&language=en-US&page=4`,
+    casts5:`https://api.themoviedb.org/3/person/popular?api_key=${apikey}&language=en-US&page=5`,
+    casts6:`https://api.themoviedb.org/3/person/popular?api_key=${apikey}&language=en-US&page=6`,
+    casts7:`https://api.themoviedb.org/3/person/popular?api_key=${apikey}&language=en-US&page=7`
 }

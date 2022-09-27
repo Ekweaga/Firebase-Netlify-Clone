@@ -8,6 +8,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Account from "./components/Account";
 import Movies from "./components/Movies";
 import Search from "./components/Search";
+import Casts from "./components/Casts";
 
 
 function App() {
@@ -51,6 +52,9 @@ useEffect(()=>{
       <Route path="/m" exact><Movies user={user}/></Route>
       <Route path="/search" exact >
         <Search/>
+      </Route>
+      <Route path="/casts" exact >
+        <Casts/>
       </Route>
     </Switch>
    
