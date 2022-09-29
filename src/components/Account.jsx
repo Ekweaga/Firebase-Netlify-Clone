@@ -64,7 +64,7 @@ function Account() {
         </div>
 
 
-       <div className='text-white grid md:grid-cols-4 grid-cols-1 mt-[100px]'>
+    { movies.length === 0 ? <div className="mt-[100px] flex items-center justify-center">No movies on your account</div>: <div className='text-white grid md:grid-cols-4 grid-cols-1 mt-[100px]'>
 
 
 
@@ -78,7 +78,7 @@ function Account() {
             })}
           
 
-        </div>
+        </div>}
 
       {
         show ?( <div className="absolute top-0 bottom-0 flex items-center justify-center w-full h-screen bg-black z-10">

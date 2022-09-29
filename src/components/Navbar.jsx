@@ -26,7 +26,7 @@ const [open,setOpen] = useState(false)
         user ? ( <div  className='md:flex gap-2 px-4 items-center justify-around text-white hidden '>
 
       <li style={{listStyle:'none'}}><Link to="casts">Casts</Link></li>
-      <li  style={{listStyle:'none'}}>Tv Shows</li>
+      <li  style={{listStyle:'none'}}><Link to="tvshows">Tv Shows</Link></li>
       <li  style={{listStyle:'none'}}>Networks</li>
         <button className="text-white"><Link to="account">Account </Link> </button>
         <button className="bg-red-900 text-white p-1 rounded" onClick={logout}>Logout</button>
@@ -47,7 +47,7 @@ const [open,setOpen] = useState(false)
         </div>
         <div  className={`md:hidden text-white  absolute w-2/3 h-screen z-50
       px-7 py-2 font-medium  top-0 duration-300 ${
-        open ? "right-0" : "right-[-100%]"
+        open ? "right-0 block" : "hidden"
       }`} style={{background:'red'}}>
 
 {

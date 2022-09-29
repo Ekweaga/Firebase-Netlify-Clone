@@ -9,6 +9,7 @@ import Account from "./components/Account";
 import Movies from "./components/Movies";
 import Search from "./components/Search";
 import Casts from "./components/Casts";
+import Networks from "./components/Networks";
 
 
 function App() {
@@ -55,6 +56,9 @@ useEffect(()=>{
       </Route>
       <Route path="/casts" exact >
         <Casts/>
+      </Route>
+      <Route path="/tvshows" exact>
+        <Networks/>
       </Route>
     </Switch>
    

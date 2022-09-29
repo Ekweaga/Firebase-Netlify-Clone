@@ -31,5 +31,12 @@ export const requests = {
     casts4:`https://api.themoviedb.org/3/person/popular?api_key=${apikey}&language=en-US&page=4`,
     casts5:`https://api.themoviedb.org/3/person/popular?api_key=${apikey}&language=en-US&page=5`,
     casts6:`https://api.themoviedb.org/3/person/popular?api_key=${apikey}&language=en-US&page=6`,
-    casts7:`https://api.themoviedb.org/3/person/popular?api_key=${apikey}&language=en-US&page=7`
+    casts7:`https://api.themoviedb.org/3/person/popular?api_key=${apikey}&language=en-US&page=7`,
+    tv1:`https://api.themoviedb.org/3/tv/top_rated?api_key=<<api_key>>&language=en-US&page=1`,
+    tv2:`https://api.themoviedb.org/3/tv/top_rated?api_key=<<api_key>>&language=en-US&page=2`,
+    tv3:`https://api.themoviedb.org/3/tv/top_rated?api_key=<<api_key>>&language=en-US&page=3`,
+    tv4:`https://api.themoviedb.org/3/tv/top_rated?api_key=<<api_key>>&language=en-US&page=4`,
+    tv5:`https://api.themoviedb.org/3/tv/top_rated?api_key=<<api_key>>&language=en-US&page=5`,
+    tv6:`https://api.themoviedb.org/3/tv/top_rated?api_key=<<api_key>>&language=en-US&page=6`,
+    tv7:`https://api.themoviedb.org/3/tv/top_rated?api_key=<<api_key>>&language=en-US&page=7`
 }
